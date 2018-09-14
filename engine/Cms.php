@@ -22,6 +22,8 @@ class Cms
 
     public function run()
     {
-        echo  'Hello CMS!';
+        echo  'Hello CMS!' . PHP_EOL;
+
+        print_r($this->di);
     }
 }
