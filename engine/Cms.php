@@ -4,6 +4,7 @@ namespace Engine;
 
 use Engine\Core\Router\Router;
 use Engine\DI\DI;
+use Engine\Helper\CommonHelper;
 
 class Cms
 {
@@ -29,8 +30,11 @@ class Cms
 
     public function run()
     {
-        echo  'Hello CMS!' . PHP_EOL;
+        $this->router->add('home', '/', 'HomeController:index');
+        $this->router->add('product', '/product/1', 'ProductController:index');
 
-        print_r($this->di);
+        $routerDispatch = $this->router->dispatch(CommonHelper::getMethod(), CommonHelper::getPathUrl());
+
+        print_r($routerDispatch);
     }
 }
